@@ -1,0 +1,33 @@
+:root {
+    /* Colors */
+    --color-white: #fff;
+    --color-black: #000;
+}
+
+html {
+    font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+    background-color: var(--color-white);
+    background-size: 224px;
+    color: var(--color-black);
+}
+html.dark {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+h1,h2,h3,h4,h5 {
+    font-weight: bold;
+    line-height: 1.2em;
+}
+
+h1 { font-size: 2.2em; }
+
+h2 { font-size: 2em; }
+
+h3 { font-size: 1.6em; }
+
+h4 { font-size: 1.2em; }
+
+h5 { font-size: 1em; }
+
+a:hover { text-decoration: underline; }

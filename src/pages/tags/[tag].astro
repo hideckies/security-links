@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import WebsiteCard from '../../components/WebsiteCard.astro';
+
+export async function getStaticPaths() {
+    const allWebsites = await getCollection('websites', ({data}) => {
+        return data.published === true;
+    });
+
+    const uniqueTags = [...new Set(allWebsites.map((website: any) => website.data.tags).flat())]
+
+    return uniqueTags.map((tag: string) => {
+        const filteredWebsites = allWebsites.filter((website: any) => website.data.tags.includes(tag));
+        return {
+            params: { tag },
+            props: { websites: filteredWebsites },
+        };
+    });
+}
+
+const { tag } = Astro.params;
+const { websites } = Astro.props;
+
+const filteredWebsites = websites.filter((website: any) => website.data.tags.includes(tag));
+const sortedWebsites = filteredWebsites.sort((a, b) => {
+	return (a.data.listedDate > b.data.listedDate) ? -1 : 1;
+});
+---
+
+<BaseLayout title={tag.toUpperCase()} description={`Websites tagged with #${tag}.`}>
+    <main
+        class="
+            mx-auto mt-8
+            w-10/12 md:w-2/3 lg:w-1/2 min-h-[70vh] flex flex-col items-center gap-y-12
+            "
+        >
+        <h1>#{tag.toUpperCase()}</h1>
+        <ul class="flex flex-col gap-y-8">
+            {sortedWebsites.map((website: any) => (
+                <WebsiteCard website={website} />
+            ))}
+        </ul>
+    </main>
+</BaseLayout>

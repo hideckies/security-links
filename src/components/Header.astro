@@ -1,0 +1,23 @@
+---
+import Hamburger from "./Hamburger.astro";
+import Navigation from "./Navigation.astro";
+import ThemeIcon from "./ThemeIcon.astro";
+---
+
+<header class="sticky top-0">
+    <div class="absolute top-2 left-2">
+        <ThemeIcon />
+    </div>
+    <div class="p-4 flex flex-col items-center justify-center gap-y-1">
+        <a href="/">
+            <img src="/assets/logo.png" alt="logo" class="w-[200px] md:w-[240px] dark:invert" />
+        </a>
+        <hr
+            class="
+                hidden md:block my-1 w-[480px]
+                border-x-0 border-t-0 border-b-2 border-black dark:border-white"
+        />
+        <Hamburger />
+        <Navigation />
+    </div>
+</header>

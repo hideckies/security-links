@@ -1,0 +1,56 @@
+---
+import { getCollection } from "astro:content";
+import WebsiteLayout from "../../layouts/WebsiteLayout.astro";
+
+export async function getStaticPaths() {
+    const allWebsites = await getCollection('websites');
+    return allWebsites.map((website: any) => ({
+        params: { slug: website.slug }, props: { website },
+    }));
+}
+
+const { website } = Astro.props;
+const { Content } = await website.render();
+---
+
+<WebsiteLayout website={website}>
+    <main
+        class="
+            mx-auto my-6
+            w-10/12 min-h-[70vh] md:w-2/3 lg:w-1/2 flex flex-col items-center gap-y-8
+        "
+    >
+        <div class="w-full flex flex-col items-center gap-y-4">
+            <h1>{website.data.title}</h1>
+            <ul class="flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
+                {website.data.tags.map((tag: string) => (
+                    <li>
+                        <a
+                            href={`/tags/${tag}`}
+                            class="border-2 border-black dark:border-white hover:no-underline px-1"
+                        >
+                            {tag}
+                        </a>
+                    </li>
+                ))}
+            </ul>
+        </div>
+        {website.data.description && (
+            <p class="text-center">{website.data.description}</p>
+        )}
+        <a
+            href={website.data.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-lg font-bold underline"
+        >
+            {website.data.url}
+        </a>
+        <div class="w-full flex items-center justify-center gap-x-2 text-sm">
+            <span>Listed: </span>
+            <time datetime={website.data.listedDate.toISOString()}>
+                {website.data.listedDate.toDateString()}
+            </time>
+        </div>
+    </main>
+</WebsiteLayout>

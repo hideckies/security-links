@@ -1,0 +1,26 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const allWebsites = await getCollection('websites', ({data}) => {
+    return data.published === true;
+})
+
+const title = "Tags";
+const description = "All tags.";
+const tags = [...new Set(allWebsites.map((website: any) => website.data.tags).flat())];
+tags.sort();
+---
+
+<BaseLayout title={title} description={description}>
+    <main class="mx-auto w-10/12 md:w-2/3 lg:w-1/2 min-h-screen px-4 flex flex-col items-center gap-y-12">
+        <h2>{title}</h2>
+        <ul class="w-10/12 md:w-2/3 lg:w-1/2">
+            {tags.map((tag: string) => (
+                <li class="my-2">
+                    <a href={`/tags/${tag}`}>#{tag}</a>    
+                </li>
+            ))}
+        </ul>
+    </main>
+</BaseLayout>

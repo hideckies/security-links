@@ -1,0 +1,40 @@
+---
+import { getCollection } from 'astro:content';
+import HomeLayout from '../layouts/HomeLayout.astro';
+import WebsiteCard from '../components/WebsiteCard.astro';
+
+const allWebsites = await getCollection('websites', ({data}) => {
+	return data.published === true;
+});
+
+const sortedWebsites = allWebsites.sort((a, b) => {
+	return (a.data.listedDate > b.data.listedDate) ? -1 : 1;
+});
+---
+
+<HomeLayout title="The OffSec Library" description="A collection of websites for hackers.">
+	<main class="mt-12 mx-auto w-10/12 md:w-2/3 lg:w-1/2 min-h-[70vh] px-2 flex flex-col items-center">
+		<ul class="flex flex-col gap-y-6">
+			{sortedWebsites.map(website => (
+				<WebsiteCard website={website} />
+			))}
+		</ul>
+	</main>
+</Layout>
+
+<style>
+	.common-articles {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		/* grid-template-rows: repeat(5, 1fr); */
+		grid-auto-rows: auto;
+		grid-column-gap: 0px;
+		grid-row-gap: 0px;
+	}
+
+	@media screen and (min-width: 768px) {
+		.common-articles {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+</style>

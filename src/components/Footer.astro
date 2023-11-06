@@ -1,0 +1,17 @@
+---
+import Social from "./Social.astro";
+---
+
+<footer class="mt-8 w-full bg-black dark:bg-white px-6 py-14 text-sm text-white dark:text-black">
+    <div class="w-full flex flex-col md:flex-row justify-around gap-y-4">
+        <div class="flex gap-x-2">
+            <a href="/about">About</a>
+            <a href="/privacy-policy">Privacy Policy</a>
+            <a href="/disclaimer">Disclaimer</a>
+        </div>
+        <div class="flex gap-x-2">
+            <Social title="Twitter" url="https://twitter.com/hideckies" />
+            <Social title="GitHub" url="https://github.com/hideckies" />
+        </div>
+    </div>
+</footer>
