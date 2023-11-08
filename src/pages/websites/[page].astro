@@ -22,7 +22,7 @@ export async function getStaticPaths({ paginate }: any) {
     return paginate(websites, { pageSize: 12 });
 }
 
-const { page } = Astro.props;
+const { page }: any = Astro.props;
 
 const title = `#All`;
 const description = `Page ${page.currentPage} for all websites.`;
