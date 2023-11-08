@@ -1,0 +1,34 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import WebsiteCard from '../../components/WebsiteCard.astro';
+
+const allWebsites = await getCollection('websites', ({data}) => {
+    return data.draft !== true;
+});
+
+const sortedWebsites = allWebsites.sort((a, b) => {
+	return (a.data.pubDate > b.data.pubDate) ? -1 : 1;
+});
+
+const title = "Websites"
+const description = "List of cybersecurity websites."
+---
+
+<BaseLayout title={title} description={description}>
+    <main
+        class="
+            mx-auto mt-8
+            w-11/12 md:w-2/3 min-h-[70vh] flex flex-col items-center gap-y-4
+            "
+        >
+        <h1>All Websites</h1>
+        <ul class="mx-auto my-6 w-full grid grid-cols-1 md:grid-cols-3 auto-rows-auto gap-y-4 md:gap-x-4 md:gap-y-8">
+            {sortedWebsites.map(website => (
+                <li class="w-full">
+                    <WebsiteCard website={website} />
+                </li>
+            ))}
+        </ul>
+    </main>
+</BaseLayout>

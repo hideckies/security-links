@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const allWebsites = await getCollection('websites', ({data}) => {
-    return data.published === true;
+    return data.draft !== true;
 })
 
 const title = "Tags";
@@ -13,12 +13,12 @@ tags.sort();
 ---
 
 <BaseLayout title={title} description={description}>
-    <main class="mx-auto w-10/12 md:w-2/3 lg:w-1/2 min-h-screen px-4 flex flex-col items-center gap-y-12">
+    <main class="mx-auto w-10/12 md:w-2/3 min-h-screen px-4 flex flex-col items-center gap-y-12">
         <h2>{title}</h2>
-        <ul class="w-10/12 md:w-2/3 lg:w-1/2">
+        <ul class="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-x-4 md:gap-y-8">
             {tags.map((tag: string) => (
-                <li class="my-2">
-                    <a href={`/tags/${tag}`}>#{tag}</a>    
+                <li class="w-full">
+                    <a href={`/tags/${tag}`} class="text-base hover:font-bold">#{tag}</a>    
                 </li>
             ))}
         </ul>

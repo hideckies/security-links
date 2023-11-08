@@ -5,18 +5,23 @@ import ThemeIcon from "./ThemeIcon.astro";
 ---
 
 <header class="sticky top-0">
-    <div class="absolute top-3 md:top-6 left-3 md:left-20">
-        <ThemeIcon />
-    </div>
-    <div class="p-4 flex flex-col items-center justify-center gap-y-1">
-        <a href="/">
-            <img src="/assets/logo.png" alt="logo" class="w-[200px] md:w-[240px] dark:invert" />
-        </a>
-        <hr
-            class="
-                hidden md:block my-1 w-[480px]
-                border-x-0 border-t-0 border-b-2 border-black dark:border-white"
-        />
+    <div class="w-full p-4 flex flex-col items-center justify-center gap-y-1">
+        <div class="w-full md:w-2/3 grid grid-cols-1 md:grid-cols-3 auto-rows-auto justify-center">
+            <div class="w-full absolute top-4 left-4 md:static md:block">
+                <ThemeIcon />
+            </div>
+            <div class="w-full flex justify-center z-10">
+                <a href="/">
+                    <img src="/assets/logo.png" alt="logo" class="w-[200px] md:w-[260px] dark:invert" />
+                </a>
+            </div>
+            <div class="w-full hidden md:block">
+                <div class="w-full h-full flex items-center justify-end text-base font-bold gap-x-2 text-sm">
+                    <a href="/about">ABOUT</a>
+                    <a href="/request">REQUEST</a>
+                </div>
+            </div>
+        </div>
         <Hamburger />
         <Navigation />
     </div>

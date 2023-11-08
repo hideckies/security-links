@@ -1,8 +1,15 @@
 # The OffSec Library
 
-Website links and archives for offensive security researchers and hackers.  
+A collection of websites for hackers and offensive security researchers.
 
-## Add New Website
+<br />
 
-## Support
+## What is It
 
+The OffSec Library is a collection of websites for hackers and offensive security researchers. I'm a security enthusiast and love looking at websites/blogs about cybersecurity, especially offensive security. So I wanted to create something like a huge library. In addition, I wanted to try something new tools/frameworks such as Astro.js.
+
+<br />
+
+## Why Made It
+
+Many people who visit this site probably think, "This is just a collection of links." That's right. The reason I made it is mainly for myself. There are so many sites out there that attract me, so it was unrealistic to list them all in my personal task management tool or add them all to my browser's bookmarks.

@@ -6,6 +6,6 @@ image:
     # url: 'https://docs.astro.build/assets/full-logo-light.png'
     # alt: 'The full Astro logo.'
 tags: ['anarchism', 'audiobook', 'history']
-listedDate: 2023-11-07
-published: true
+pubDate: 2023-11-07
+draft: false
 ---

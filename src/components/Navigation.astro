@@ -1,49 +1,68 @@
 ---
+import Social from "./Social.astro";
 ---
 
 <nav
     class="
         nav-links
-        m-0 w-10/12 md:w-2/3 lg:w-1/2
-        hidden md:flex md:flex-wrap items-center justify-center gap-x-4 gap-y-1
+        m-0 w-10/12 md:w-2/3 overflow-auto
+        border-0 md:border-y-2 border-black dark:border-white
+        hidden md:flex md:flex-wrap items-center justify-around gap-x-4 gap-y-2
         text-sm font-bold
     "
 >
-    <a href="/tags/ai">#AI</a>
-    <a href="/tags/advisory">#ADVISORY</a>
-    <a href="/tags/blog">#BLOG</a>
-    <a href="/tags/bugbounty">#BUGBOUNTY</a>
-    <a href="/tags/ctf">#CTF</a>
-    <a href="/tags/cve">#CVE</a>
-    <a href="/tags/forum">#FORUM</a>
-    <a href="/tags/malware">#MALWARE</a>
-    <a href="/tags/news">#NEWS</a>
-    <a href="/tags/osint">#OSINT</a>
-    <a href="/tags/research">#RESEARCH</a>
-    <a href="/tags/tool">#TOOL</a>
-    <a href="/tags/training">#TRAINING</a>
-    <a href="/tags/web3">#WEB3</a>
-    <a href="/tags/">ALL TAGS</a>
+    <div
+        class="
+            flex flex-col md:flex-row md:flex-wrap md:items-center md:justify-around
+            gap-y-3 md:gap-y-0 md:gap-x-4
+        "
+    >
+        <a href="/tags/blog">#BLOG</a>
+        <a href="/tags/bugbounty">#BUGBOUNTY</a>
+        <a href="/tags/ctf">#CTF</a>
+        <a href="/tags/cve">#CVE</a>
+        <a href="/tags/forum">#FORUM</a>
+        <a href="/tags/news">#NEWS</a>
+        <a href="/tags/osint">#OSINT</a>
+        <a href="/tags/training">#TRAINING</a>
+        <a href="/websites/1">#ALL</a>
+    </div>
+
+    <div class="md:hidden flex flex-col md:flex-row gap-y-3 md:gap-y-0 md:gap-x-2">
+        <a href="/about">ABOUT</a>
+        <a href="/request">REQUEST</a>
+    </div>
+
+    <div class="md:hidden flex flex-col gap-y-4">
+        <h4 class="text-gray-500">FOLLOW</h4>
+        <div class="flex items-center gap-x-2">
+            <Social title="Twitter" url="https://twitter.com/hideckies" />
+            <Social title="GitHub" url="https://github.com/hideckies/theoffseclibrary" />
+        </div>
+    </div>
+
 </nav>
 
 <style>
+    /* Navigation for mobile */
     .nav-links-hamburger {
         position: fixed;
         top: 0;
         right: 0;
-        width: 60vw;
+        width: 100vw;
         height: 100vh;
+        min-height: 100vh;
         background-color: var(--color-black);
-        padding: 60px 12px 0 12px;
+        padding: 60px 32px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-        row-gap: 1em;
+        gap: 32px 0px;
         color: var(--color-white);
     }
 
     .nav-links-hamburger a {
-        font-size: 1em;
+        font-size: 1.1em;
     }
 </style>

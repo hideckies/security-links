@@ -5,7 +5,7 @@ import WebsiteCard from '../../components/WebsiteCard.astro';
 
 export async function getStaticPaths() {
     const allWebsites = await getCollection('websites', ({data}) => {
-        return data.published === true;
+        return data.draft !== true;
     });
 
     const uniqueTags = [...new Set(allWebsites.map((website: any) => website.data.tags).flat())]
@@ -24,7 +24,7 @@ const { websites } = Astro.props;
 
 const filteredWebsites = websites.filter((website: any) => website.data.tags.includes(tag));
 const sortedWebsites = filteredWebsites.sort((a, b) => {
-	return (a.data.listedDate > b.data.listedDate) ? -1 : 1;
+	return (a.data.pubDate > b.data.pubDate) ? -1 : 1;
 });
 ---
 
@@ -32,13 +32,15 @@ const sortedWebsites = filteredWebsites.sort((a, b) => {
     <main
         class="
             mx-auto mt-8
-            w-10/12 md:w-2/3 lg:w-1/2 min-h-[70vh] flex flex-col items-center gap-y-12
+            w-11/12 md:w-2/3 min-h-[70vh] flex flex-col items-center gap-y-4
             "
         >
         <h1>#{tag.toUpperCase()}</h1>
-        <ul class="flex flex-col gap-y-8">
-            {sortedWebsites.map((website: any) => (
-                <WebsiteCard website={website} />
+        <ul class="mx-auto my-6 w-full grid grid-cols-1 md:grid-cols-3 auto-rows-auto gap-y-4 md:gap-x-4 md:gap-y-8">
+            {sortedWebsites.map(website => (
+                <li class="w-full">
+                    <WebsiteCard website={website} />
+                </li>
             ))}
         </ul>
     </main>

@@ -2,39 +2,118 @@
 import { getCollection } from 'astro:content';
 import HomeLayout from '../layouts/HomeLayout.astro';
 import WebsiteCard from '../components/WebsiteCard.astro';
+import WebsiteTopCard from '../components/WebsiteTopCard.astro';
+import { pickupSites, bugbountySites } from './pickups';
 
 const allWebsites = await getCollection('websites', ({data}) => {
-	return data.published === true;
+	return data.draft !== true;
 });
 
 const sortedWebsites = allWebsites.sort((a, b) => {
-	return (a.data.listedDate > b.data.listedDate) ? -1 : 1;
+	return (a.data.pubDate > b.data.pubDate) ? -1 : 1;
 });
+
+const topWebsites = [];
+const youtubeWebsites = [];
+const recentWebsites = [];
+for (let i = 0; i < sortedWebsites.length; i++) {
+    if (pickupSites.includes(sortedWebsites[i].slug)) {
+        topWebsites.push(sortedWebsites[i]);
+    } else if (sortedWebsites[i].data.tags.includes('youtube')) {
+        if (youtubeWebsites.length < 3) {
+            youtubeWebsites.push(sortedWebsites[i]);
+        }
+    } else {
+        if (recentWebsites.length < 12) {
+            recentWebsites.push(sortedWebsites[i]);
+        }
+    }
+}
+
+const total = allWebsites.length;
 ---
 
 <HomeLayout title="The OffSec Library" description="A collection of websites for hackers.">
-	<main class="mt-12 mx-auto w-10/12 md:w-2/3 lg:w-1/2 min-h-[70vh] px-2 flex flex-col items-center">
-		<ul class="flex flex-col gap-y-6">
-			{sortedWebsites.map(website => (
-				<WebsiteCard website={website} />
-			))}
-		</ul>
+    <main class="mx-auto w-11/12 md:w-2/3 min-h-[70vh] px-2">
+        <div class="my-4 w-full">
+            <p>
+                The OffSec Library is a collection of websites for hackers and offensive security researchers. Actually, this is just a collection of links.
+            </p>
+        </div>
+        <div class="w-full flex items-center justify-center gap-x-2">
+            <hr class="w-full border-b-2 border-black dark:border-white" />
+            <span class="text-center font-bold">PICKUP</span>
+            <hr class="w-full border-b-2 border-black dark:border-white" />
+        </div>
+        <ul class="mx-auto w-full grid grid-cols-1 md:grid-cols-2 auto-rows-auto gap-y-4 md:gap-x-4 md:gap-y-0">
+            {topWebsites.map(website => (
+                <li class="w-full">
+                    <WebsiteTopCard website={website} />
+                </li>
+            ))}
+        </ul>
+        <div class="my-4 w-full flex flex-col md:flex-row gap-y-4 md:gap-y-0">
+            <a
+                href="/websites/1"
+                class="
+                    flex flex-col md:border-r-2 md:border-0 border-black dark:border-white md:px-2
+                    hover:no-underline
+                "
+            >
+                <span class="text-md font-bold">TOTAL</span>
+                <div class="flex items-baseline">
+                    <span class="text-7xl font-bold">{total}</span>
+                    <span class="text-xl font-bold">WEBSITES</span>
+                </div>
+            </a>
+            <div class="md:px-2 flex flex-col md:border-r-2 border-black dark:border-white">
+                <span class="text-sm font-bold">NEXT-GEN CATEGORIES</span>
+                <ul class="h-full flex flex-col justify-around text-xl font-bold">
+                    <li><a href="/tags/ai">#AI</a></li>
+                    <li><a href="/tags/blockchain">#BLOCKCHAIN</a></li>
+                </ul>
+            </div>
+            <div
+                class="
+                    w-full md:px-2 bg-[url('/assets/images/gentleman-phone-cafe.png')] bg-center
+                    flex flex-col items-center justify-center
+                "
+            >
+                <!-- <span class="text-lg font-bold">YOUTUBE CHANNELS</span>
+                <ul class="h-full flex flex-col justify-around">
+                    {youtubeWebsites.map(website => (
+                        <li>
+                            <a href={`/websites/${website.slug}`}>
+                                {website.data.title.replace(' YouTube Channel', '')}
+                            </a>
+                        </li>
+                    ))}
+                </ul> -->
+                <a
+                    href="/tags/"
+                    class="bg-black px-2 py-1 text-center text-white text-3xl font-bold hover:no-underline"
+                >
+                    SEE ALL #TAGS
+                </a>
+            </div>
+        </div>
+        <div class="my-4 w-full bg-black dark:bg-white py-2">
+            <p class="text-center text-base text-white dark:text-black font-bold">RECENTLY ADDED</p>
+        </div>
+        <ul class="mx-auto my-6 w-full grid grid-cols-1 md:grid-cols-3 auto-rows-auto gap-y-4 md:gap-x-2 md:gap-y-8">
+            {recentWebsites.map(website => (
+                <li class="w-full">
+                    <WebsiteCard website={website} />
+                </li>
+            ))}
+        </ul>
+        <div class="my-8 text-right">
+            <a
+                href="/websites/1"
+                class="bg-black px-4 py-2 text-base dark:bg-white text-white dark:text-black font-bold"
+            >
+                MORE WEBSITES
+            </a>
+        </div>
 	</main>
 </Layout>
-
-<style>
-	.common-articles {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		/* grid-template-rows: repeat(5, 1fr); */
-		grid-auto-rows: auto;
-		grid-column-gap: 0px;
-		grid-row-gap: 0px;
-	}
-
-	@media screen and (min-width: 768px) {
-		.common-articles {
-			grid-template-columns: repeat(3, 1fr);
-		}
-	}
-</style>

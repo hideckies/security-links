@@ -6,6 +6,6 @@ image:
     # url: '/assets/images/cafe.png'
     # alt: 'Cafe'
 tags: ['malware', 'news', 'ransomware', 'threat-intelligence']
-listedDate: 2023-11-09
-published: true
+pubDate: 2023-11-09
+draft: false
 ---

@@ -1,0 +1,37 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Request New Website";
+const description = "Please tell me awesome websites.";
+---
+
+<BaseLayout title={title} description={description}>
+    <main class="mx-auto w-11/12 md:w-2/3 min-h-screen px-2 flex flex-col items-center gap-y-6">
+        <h2 class="text-center">{title}</h2>
+        <img
+            src="/assets/images/magic-book.png"
+            alt="A Magic Book"
+            class="w-10/12 md:w-[220px]"
+        />
+        <div class="w-full flex flex-col gap-y-8">
+            <div class="w-full flex flex-col gap-y-4">
+                <p>Do you know of any other awesome websites? If so, please let me know from the following:</p>
+                <ul class="list-disc">
+                    <li>
+                        <a
+                            href="https://github.com/hideckies/theoffseclibrary/issues/new"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline font-bold"
+                        >
+                            Issue on GitHub
+                        </a>
+                    </li>
+                    <li>
+                        <span class="font-bold">Email: hdks.bug@gmail[.]com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+</BaseLayout>

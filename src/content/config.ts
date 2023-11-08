@@ -1,4 +1,5 @@
 import { defineCollection, reference, z } from 'astro:content';
+// import { rssSchema } from '@astrojs/rss';
 
 const websitesCollection = defineCollection({
     type: 'content',
@@ -8,9 +9,10 @@ const websitesCollection = defineCollection({
         url: z.string(),
         tags: z.array(z.string()),
         image: z.any().optional().nullable(),
-        listedDate: z.date(),
-        published: z.boolean(),
+        pubDate: z.date(),
+        draft: z.boolean(),
     })
+    // schema: rssSchema,
 });
 
 export const collections = { 'websites': websitesCollection };

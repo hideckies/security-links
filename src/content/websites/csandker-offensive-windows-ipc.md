@@ -6,6 +6,6 @@ image:
     # url: '/assets/images/cafe.png'
     # alt: 'Cafe'
 tags: ['blog', 'tutorial', 'windows']
-listedDate: 2023-11-08
-published: true
+pubDate: 2023-11-08
+draft: false
 ---

@@ -48,9 +48,31 @@ const { Content } = await website.render();
         </a>
         <div class="w-full flex items-center justify-center gap-x-2 text-sm">
             <span>Listed: </span>
-            <time datetime={website.data.listedDate.toISOString()}>
-                {website.data.listedDate.toDateString()}
+            <time datetime={website.data.pubDate.toISOString()}>
+                {website.data.pubDate.toDateString()}
             </time>
+        </div>
+        <div
+            class="
+                mt-8 w-full flex flex-col md:flex-row justify-center md:justify-end
+                md:gap-x-2 gap-y-2 md:gap-y-0 text-sm
+            "
+        >
+            <a
+                href={`https://github.com/hideckies/theoffseclibrary/blob/main/src/content/websites/${website.slug}.md`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="border-2 border-black dark:border-white p-1 text-center hover:no-underline">
+                EDIT INFORMATION
+            </a>
+            <a
+                href="https://github.com/hideckies/theoffseclibrary/issues/new"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="border-2 border-black dark:border-white p-1 text-center hover:no-underline"
+            >
+                REPORT THIS SITE
+            </a>
         </div>
     </main>
 </WebsiteLayout>

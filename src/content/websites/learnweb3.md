@@ -6,6 +6,6 @@ image:
     # url: '/assets/images/cafe.png'
     # alt: 'Cafe'
 tags: ['blockchain', 'web3']
-listedDate: 2023-11-10
-published: true
+pubDate: 2023-11-10
+draft: false
 ---

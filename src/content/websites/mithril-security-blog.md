@@ -6,6 +6,6 @@ image:
     # url: '/assets/images/cafe.png'
     # alt: 'Cafe'
 tags: ['ai', 'blog', 'llm', 'machine-learning']
-listedDate: 2023-11-10
-published: true
+pubDate: 2023-11-10
+draft: false
 ---
