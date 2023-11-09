@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import WebsiteCard from '../../components/WebsiteCard.astro';
+import WebsiteList from '../../components/WebsiteList.astro';
 
 export async function getStaticPaths({ paginate }: any) {
     const allWebsites = await getCollection('websites', ({data}) => {
@@ -34,7 +35,7 @@ const pageNums = Array.from(
 ---
 
 <BaseLayout title={title} description={description}>
-    <main class="mx-auto w-11/12 md:w-2/3 min-h-screen px-4 flex flex-col items-center gap-y-2">
+    <main class="mx-auto w-11/12 md:w-3/4 min-h-screen px-4 flex flex-col items-center gap-y-2">
         <div class="mx-auto w-full md:w-1/3 flex items-center justify-center text-base">
             <div class="flex-1 flex justify-center">
                 {page.url.prev ? (
@@ -73,12 +74,12 @@ const pageNums = Array.from(
                 ) : null}
             </div>
         </div>
-        <ul class="mx-auto my-6 w-full grid grid-cols-1 md:grid-cols-3 auto-rows-auto gap-y-4 md:gap-x-4 md:gap-y-8">
+        <WebsiteList>
             {page.data.map(({ website }: any) => (
                 <li class="w-full">
                     <WebsiteCard website={website} />
                 </li>
             ))}
-        </ul>
+        </WebsiteList>
     </main>
 </BaseLayout>

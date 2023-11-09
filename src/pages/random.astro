@@ -1,0 +1,25 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import RandomWebsiteList from "../components/RandomWebsiteList";
+
+const allWebsites = await getCollection('websites', ({data}) => {
+	return data.draft !== true;
+});
+
+const title = "RANDOM";
+const description = "Find awesome websites by randomizing websites.";
+---
+
+<BaseLayout title={title} description={description}>
+    <main
+        class="
+            mx-auto mt-8
+            w-11/12 md:w-3/4 min-h-[70vh] flex flex-col items-center gap-y-4
+            "
+        >
+        <h1>#RANDOM</h1>
+        <p class="text-lg">Discover new sites by random list.</p>
+        <RandomWebsiteList client:load websites={allWebsites} />
+    </main>
+</BaseLayout>

@@ -2,8 +2,9 @@
 import { getCollection } from 'astro:content';
 import HomeLayout from '../layouts/HomeLayout.astro';
 import WebsiteCard from '../components/WebsiteCard.astro';
+import WebsiteList from '../components/WebsiteList.astro';
 import WebsiteTopCard from '../components/WebsiteTopCard.astro';
-import { pickupSites, bugbountySites } from './pickups';
+import { pickupSites } from './pickups';
 
 const allWebsites = await getCollection('websites', ({data}) => {
 	return data.draft !== true;
@@ -34,7 +35,7 @@ const total = allWebsites.length;
 ---
 
 <HomeLayout title="The OffSec Library" description="A collection of websites for hackers.">
-    <main class="mx-auto w-11/12 md:w-2/3 min-h-[70vh] px-2">
+    <main class="mx-auto w-11/12 md:w-3/4 min-h-[70vh] px-2">
         <div class="my-4 w-full">
             <p>
                 The OffSec Library is a collection of websites for hackers and offensive security researchers. Actually, this is just a collection of links.
@@ -79,16 +80,6 @@ const total = allWebsites.length;
                     flex flex-col items-center justify-center
                 "
             >
-                <!-- <span class="text-lg font-bold">YOUTUBE CHANNELS</span>
-                <ul class="h-full flex flex-col justify-around">
-                    {youtubeWebsites.map(website => (
-                        <li>
-                            <a href={`/websites/${website.slug}`}>
-                                {website.data.title.replace(' YouTube Channel', '')}
-                            </a>
-                        </li>
-                    ))}
-                </ul> -->
                 <a
                     href="/tags/"
                     class="bg-black px-2 py-1 text-center text-white text-3xl font-bold hover:no-underline"
@@ -100,13 +91,13 @@ const total = allWebsites.length;
         <div class="my-4 w-full bg-black dark:bg-white py-2">
             <p class="text-center text-base text-white dark:text-black font-bold">RECENTLY ADDED</p>
         </div>
-        <ul class="mx-auto my-6 w-full grid grid-cols-1 md:grid-cols-3 auto-rows-auto gap-y-4 md:gap-x-2 md:gap-y-8">
+        <WebsiteList>
             {recentWebsites.map(website => (
                 <li class="w-full">
                     <WebsiteCard website={website} />
                 </li>
             ))}
-        </ul>
+        </WebsiteList>
         <div class="my-8 text-right">
             <a
                 href="/websites/1"

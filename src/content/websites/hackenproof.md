@@ -6,6 +6,6 @@ image:
     # url: '/assets/images/cafe.png'
     # alt: 'Cafe'
 tags: ['bugbounty', 'bugbounty', 'web3']
-pubDate: 2023-11-12
+pubDate: 2023-11-07
 draft: false
 ---

@@ -1,5 +1,6 @@
 ---
 import Footer from '../components/Footer.astro';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 import Header from '../components/Header.astro';
 import "../styles/global.css";
 
@@ -20,6 +21,7 @@ const { title, description } = Astro.props;
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<GoogleAnalytics />
 	</head>
 	<body>
 		<div>

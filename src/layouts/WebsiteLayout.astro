@@ -1,7 +1,8 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import Header from "../components/Header.astro";
 import Footer from '../components/Footer.astro';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import Header from "../components/Header.astro";
 import "../styles/global.css";
 
 interface Props {
@@ -19,6 +20,7 @@ const { website } = Astro.props;
         <link rel="icon" href="/favicon.ico" />
         <meta name="generator" content={Astro.generator} />
         <title>{website.data.title} - The OffSec Library</title>
+        <GoogleAnalytics />
     </head>
     <body>
         <div>
