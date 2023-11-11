@@ -1,5 +1,5 @@
 ---
-title: Sophos News - Naked Security
+title: Naked Security
 description: Insights, education and and advice on cybersecurity issues and threats.
 url: https://news.sophos.com/en-us/category/serious-security/
 image:

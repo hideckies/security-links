@@ -1,15 +1,12 @@
 import { useState } from 'preact/hooks';
 import { shuffle } from '../utils/array';
-// import WebsiteCard from './WebsiteCard.astro';
-// import WebsiteList from './WebsiteList.astro';
 
 export default function RandomWebsiteList({websites}: any) {
     const randomize = () => shuffle(websites);
-    const randomSites = randomize();
 
-    const [site0, setSite0] = useState(randomSites[0]);
-    const [site1, setSite1] = useState(randomSites[1]);
-    const [site2, setSite2] = useState(randomSites[2]);
+    const [site0, setSite0] = useState(websites[0]);
+    const [site1, setSite1] = useState(websites[1]);
+    const [site2, setSite2] = useState(websites[2]);
 
     const handleClick = (e: any) => {
         const randomSites = randomize();
@@ -77,7 +74,7 @@ export default function RandomWebsiteList({websites}: any) {
                                 <a
                                     href={`/tags/${tag}`}
                                     class="
-                                        border-2 border-black dark:border-white
+                                        border-2 border-navy dark:border-khaki
                                         px-1
                                         text-sm hover:no-underline
                                     "
@@ -110,7 +107,7 @@ export default function RandomWebsiteList({websites}: any) {
                                 <a
                                     href={`/tags/${tag}`}
                                     class="
-                                        border-2 border-black dark:border-white
+                                        border-2 border-navy dark:border-khaki
                                         px-1
                                         text-sm hover:no-underline
                                     "
@@ -143,7 +140,7 @@ export default function RandomWebsiteList({websites}: any) {
                                 <a
                                     href={`/tags/${tag}`}
                                     class="
-                                        border-2 border-black dark:border-white
+                                        border-2 border-navy dark:border-khaki
                                         px-1
                                         text-sm hover:no-underline
                                     "
@@ -167,7 +164,3 @@ export default function RandomWebsiteList({websites}: any) {
         </div>
     )
 }
-
-<script>
-
-</script>

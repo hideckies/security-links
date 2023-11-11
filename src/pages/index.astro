@@ -4,7 +4,7 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 import WebsiteCard from '../components/WebsiteCard.astro';
 import WebsiteList from '../components/WebsiteList.astro';
 import WebsiteTopCard from '../components/WebsiteTopCard.astro';
-import { pickupSites } from './pickups';
+import { shuffle } from '../utils/array';
 
 const allWebsites = await getCollection('websites', ({data}) => {
 	return data.draft !== true;
@@ -14,13 +14,11 @@ const sortedWebsites = allWebsites.sort((a, b) => {
 	return (a.data.pubDate > b.data.pubDate) ? -1 : 1;
 });
 
-const topWebsites = [];
+const topWebsites = shuffle(allWebsites).slice(0, 2);
 const youtubeWebsites = [];
 const recentWebsites = [];
 for (let i = 0; i < sortedWebsites.length; i++) {
-    if (pickupSites.includes(sortedWebsites[i].slug)) {
-        topWebsites.push(sortedWebsites[i]);
-    } else if (sortedWebsites[i].data.tags.includes('youtube')) {
+    if (sortedWebsites[i].data.tags.includes('youtube')) {
         if (youtubeWebsites.length < 3) {
             youtubeWebsites.push(sortedWebsites[i]);
         }
@@ -42,9 +40,9 @@ const total = allWebsites.length;
             </p>
         </div>
         <div class="w-full flex items-center justify-center gap-x-2">
-            <hr class="w-full border-b-2 border-black dark:border-white" />
+            <hr class="w-full border-b-2 border-navy dark:border-khaki" />
             <span class="text-center font-bold">PICKUP</span>
-            <hr class="w-full border-b-2 border-black dark:border-white" />
+            <hr class="w-full border-b-2 border-navy dark:border-khaki" />
         </div>
         <ul class="mx-auto w-full grid grid-cols-1 md:grid-cols-2 auto-rows-auto gap-y-4 md:gap-x-4 md:gap-y-0">
             {topWebsites.map(website => (
@@ -57,7 +55,7 @@ const total = allWebsites.length;
             <a
                 href="/websites/1"
                 class="
-                    flex flex-col md:border-r-2 md:border-0 border-black dark:border-white md:px-2
+                    flex flex-col md:border-r-2 md:border-0 border-navy dark:border-khaki md:px-2
                     hover:no-underline
                 "
             >
@@ -67,7 +65,7 @@ const total = allWebsites.length;
                     <span class="text-xl font-bold">WEBSITES</span>
                 </div>
             </a>
-            <div class="md:px-2 flex flex-col md:border-r-2 border-black dark:border-white">
+            <div class="md:px-2 flex flex-col md:border-r-2 border-navy dark:border-khaki">
                 <span class="text-sm font-bold">NEXT-GEN CATEGORIES</span>
                 <ul class="h-full flex flex-col justify-around text-xl font-bold">
                     <li><a href="/tags/ai">#AI</a></li>
@@ -76,20 +74,20 @@ const total = allWebsites.length;
             </div>
             <div
                 class="
-                    w-full md:px-2 bg-[url('/assets/images/gentleman-phone-cafe.png')] bg-center
+                    w-full md:px-2 bg-center
                     flex flex-col items-center justify-center
                 "
             >
                 <a
                     href="/tags/"
-                    class="bg-black px-2 py-1 text-center text-white text-3xl font-bold hover:no-underline"
+                    class="bg-navy dark:bg-khaki px-2 py-1 text-center text-khaki dark:text-navy text-5xl font-bold hover:no-underline"
                 >
                     SEE ALL #TAGS
                 </a>
             </div>
         </div>
-        <div class="my-4 w-full bg-black dark:bg-white py-2">
-            <p class="text-center text-base text-white dark:text-black font-bold">RECENTLY ADDED</p>
+        <div class="my-4 w-full bg-navy dark:bg-khaki py-2">
+            <p class="text-center text-base text-khaki dark:text-navy font-bold">RECENTLY ADDED</p>
         </div>
         <WebsiteList>
             {recentWebsites.map(website => (
@@ -101,7 +99,7 @@ const total = allWebsites.length;
         <div class="my-8 text-right">
             <a
                 href="/websites/1"
-                class="bg-black px-4 py-2 text-base dark:bg-white text-white dark:text-black font-bold"
+                class="bg-navy px-4 py-2 text-base dark:bg-khaki text-khaki dark:text-navy font-bold"
             >
                 MORE WEBSITES
             </a>

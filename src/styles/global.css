@@ -1,18 +1,22 @@
 :root {
     /* Colors */
     --color-white: #fff;
+    --color-khaki: #d3c5b8;
+    --color-navy: #00051a;
     --color-black: #000;
 }
 
 html {
     font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
-    background-color: var(--color-white);
+    background-color: var(--color-khaki);
     background-size: 224px;
-    color: var(--color-black);
+    border-color: var(--color-navy);
+    color: var(--color-navy);
 }
 html.dark {
-    background-color: var(--color-black);
-    color: var(--color-white);
+    background-color: var(--color-navy);
+    border-color: var(--color-khaki);
+    color: var(--color-khaki);
 }
 
 h1,h2,h3,h4,h5 {

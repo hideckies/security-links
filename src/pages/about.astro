@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import hackerImage from "../assets/images/hacker-reading-a-book.png";
 
 const title = "About the Website";
 const description = "About The OffSec Library.";
@@ -8,11 +10,7 @@ const description = "About The OffSec Library.";
 <BaseLayout title={title} description={description}>
     <main class="mx-auto w-11/12 md:w-3/4 min-h-screen px-2 flex flex-col items-center gap-y-6">
         <h2 class="text-center">{title}</h2>
-        <img
-            src="/assets/images/hacker-reading-a-book.png"
-            alt="Hacker Reading A Book"
-            class="w-10/12 md:w-[220px]"
-        />
+        <Image src={hackerImage} alt="hacker" class="w-10/12 md:w-[220px]" />
         <div class="w-full flex flex-col gap-y-8">
             <div class="w-full flex flex-col gap-y-4">
                 <h3>What Is This</h3>

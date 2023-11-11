@@ -1,5 +1,5 @@
 ---
-title: CPR - Check Point Research
+title: Check Point Research
 description: The Intelligence and research arm of Check Point Technologies provides leading cyber threat intelligence to Check Point customers and the greater intelligence community.
 url: https://research.checkpoint.com/
 image:

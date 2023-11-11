@@ -2,10 +2,13 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import RandomWebsiteList from "../components/RandomWebsiteList";
+import { shuffle } from "../utils/array";
 
 const allWebsites = await getCollection('websites', ({data}) => {
 	return data.draft !== true;
 });
+
+const randomWebsites = shuffle(allWebsites);
 
 const title = "RANDOM";
 const description = "Find awesome websites by randomizing websites.";
@@ -20,6 +23,6 @@ const description = "Find awesome websites by randomizing websites.";
         >
         <h1>#RANDOM</h1>
         <p class="text-lg">Discover new sites by random list.</p>
-        <RandomWebsiteList client:load websites={allWebsites} />
+        <RandomWebsiteList client:load websites={randomWebsites} />
     </main>
 </BaseLayout>

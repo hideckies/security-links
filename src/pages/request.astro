@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import bookImage from "../assets/images/magic-book.png";
 
 const title = "Request New Website";
 const description = "Please tell me awesome websites.";
@@ -8,11 +10,7 @@ const description = "Please tell me awesome websites.";
 <BaseLayout title={title} description={description}>
     <main class="mx-auto w-11/12 md:w-3/4 min-h-screen px-2 flex flex-col items-center gap-y-6">
         <h2 class="text-center">{title}</h2>
-        <img
-            src="/assets/images/magic-book.png"
-            alt="A Magic Book"
-            class="w-10/12 md:w-[220px]"
-        />
+        <Image src={bookImage} alt="magic book" class="w-10/12 md:w-[220px]" />
         <div class="w-full flex flex-col gap-y-8">
             <div class="w-full flex flex-col gap-y-4">
                 <p>Do you know of any other awesome websites? If so, please let me know from the following:</p>
