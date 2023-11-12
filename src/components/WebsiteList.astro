@@ -1,6 +1,18 @@
 ---
+import WebsiteCard from "./WebsiteCard.astro";
+
+const { websites } = Astro.props;
 ---
 
-<ul class="mx-auto my-6 w-full grid grid-cols-1 md:grid-cols-3 auto-rows-auto gap-y-8 md:gap-x-4">
-    <slot />
+<ul
+    class="
+        mx-auto my-6 w-full grid grid-cols-1 md:grid-cols-3 auto-rows-auto
+        gap-y-8 md:gap-8
+    "
+>
+    {websites.map((website: any) => (
+        <li class="w-full">
+            <WebsiteCard website={website} />
+        </li>
+    ))}
 </ul>

@@ -1,6 +1,7 @@
 ---
 import Footer from '../components/Footer.astro';
 import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import OGP from '../components/OGP.astro';
 import Header from '../components/Header.astro';
 import "../styles/global.css";
 
@@ -21,12 +22,15 @@ const { title, description } = Astro.props;
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<OGP title={title} description={description} />
 		<GoogleAnalytics />
 	</head>
 	<body>
 		<div>
-			<Header />
-			<slot />
+			<div class="mx-auto w-11/12 md:w-4/5">
+				<Header />
+				<slot />
+			</div>
 			<Footer />
 		</div>
 		<script>

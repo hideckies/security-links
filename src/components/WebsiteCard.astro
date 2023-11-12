@@ -11,56 +11,55 @@ const { website } = Astro.props;
 const oneWeekAgo = getOneWeekAgo();
 ---
 
-<div class="flex flex-col gap-y-1">
-    <div class="flex items-center">
-        <h4>
-            <a
-                href={`/websites/${website.slug}`}
-                class="text-xl font-bold underline break-words"
-            >
-                {website.data.title}
-            </a>
-            {website.data.pubDate > oneWeekAgo && (
-                <span
-                    class="
-                        ml-2
-                        bg-navy dark:bg-khaki text-khaki dark:text-navy
-                        px-1
-                        text-xs
-                    "
-                >NEW</span>
-            )}
-        </h4>
-    </div>
-    <ul class="flex flex-wrap items-center gap-x-2">
-        {website.data.tags.map((tag: string) => (
-            <li>
-                <a
-                    href={`/tags/${tag}`}
-                    class="
-                        border-2 border-navy dark:border-khaki
-                        px-1
-                        text-sm hover:no-underline
-                    "
-                >
-                    {tag}
-                </a>
-            </li>
-        ))}
-    </ul>
-    {website.data.description && (
-        <p class="text-base line-clamp-3 break-words">
-            {website.data.description}
-        </p>
-    )}
-    <div>
+<div class="w-full h-full border-2 border-navy dark:border-khaki flex flex-col gap-y-1">
+    <div class="relative bg-navy dark:bg-khaki px-2 py-1 flex items-center justify-center">
         <a
-            href={website.data.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline text-sm underline line-clamp-1 break-words"
+            href={`/websites/${website.slug}`}
+            class="text-center text-xl text-khaki dark:text-navy font-bold break-words"
         >
-            {website.data.url}
+            {website.data.title}
         </a>
+        {website.data.pubDate > oneWeekAgo && (
+            <span
+                class="
+                    absolute top-0 right-0 z-10
+                    bg-khaki dark:bg-navy text-navy dark:text-khaki
+                    px-1 text-xs
+                "
+            >NEW</span>
+        )}
+    </div>
+    <div class="w-full h-full px-3 py-2 flex flex-col gap-y-3">
+        <ul class="flex flex-wrap items-center gap-1">
+            {website.data.tags.map((tag: string) => (
+                <li>
+                    <a
+                        href={`/tags/${tag}`}
+                        class="
+                            bg-navy dark:bg-khaki
+                            px-2 py-1
+                            text-sm text-khaki dark:text-navy font-bold hover:no-underline
+                        "
+                    >
+                        {tag}
+                    </a>
+                </li>
+            ))}
+        </ul>
+        {website.data.description && (
+            <p class="text-base line-clamp-3 break-words">
+                {website.data.description}
+            </p>
+        )}
+        <div>
+            <a
+                href={website.data.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline text-sm underline line-clamp-1 break-words"
+            >
+                {website.data.url}
+            </a>
+        </div>
     </div>
 </div>

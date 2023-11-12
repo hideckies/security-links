@@ -1,9 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import HomeLayout from '../layouts/HomeLayout.astro';
-import WebsiteCard from '../components/WebsiteCard.astro';
 import WebsiteList from '../components/WebsiteList.astro';
-import WebsiteTopCard from '../components/WebsiteTopCard.astro';
 import { shuffle } from '../utils/array';
 
 const allWebsites = await getCollection('websites', ({data}) => {
@@ -14,88 +12,46 @@ const sortedWebsites = allWebsites.sort((a, b) => {
 	return (a.data.pubDate > b.data.pubDate) ? -1 : 1;
 });
 
-const topWebsites = shuffle(allWebsites).slice(0, 2);
-const youtubeWebsites = [];
+// Clone the array
+const _sortedWebsites = [...sortedWebsites];
+
+const pickupWebsites = [...shuffle(_sortedWebsites)].slice(0, 3);
 const recentWebsites = [];
-for (let i = 0; i < sortedWebsites.length; i++) {
-    if (sortedWebsites[i].data.tags.includes('youtube')) {
-        if (youtubeWebsites.length < 3) {
-            youtubeWebsites.push(sortedWebsites[i]);
-        }
-    } else {
-        if (recentWebsites.length < 12) {
-            recentWebsites.push(sortedWebsites[i]);
+for (let i = 0; i < _sortedWebsites.length; i++) {
+    // Exclude the websites of pickupWebsites
+    let exclude = false;
+    for (let k = 0; k < pickupWebsites.length; k++) {
+        if (pickupWebsites[k].slug === _sortedWebsites[i].slug) {
+            exclude = true;
+            break;
         }
     }
+    
+    if (!exclude && recentWebsites.length < 12) {
+        recentWebsites.push(_sortedWebsites[i]);
+    }
 }
-
-const total = allWebsites.length;
 ---
 
 <HomeLayout title="The OffSec Library" description="A collection of websites for hackers.">
-    <main class="mx-auto w-11/12 md:w-3/4 min-h-[70vh] px-2">
-        <div class="my-4 w-full">
-            <p>
+    <main class="w-full min-h-[70vh] px-2">
+        <div class="my-6 w-full">
+            <p class="text-base text-center">
                 The OffSec Library is a collection of websites for hackers and offensive security researchers. Actually, this is just a collection of links.
             </p>
         </div>
         <div class="w-full flex items-center justify-center gap-x-2">
-            <hr class="w-full border-b-2 border-navy dark:border-khaki" />
+            <hr class="w-[60px] border-b-2 border-navy dark:border-khaki" />
             <span class="text-center font-bold">PICKUP</span>
-            <hr class="w-full border-b-2 border-navy dark:border-khaki" />
+            <hr class="w-[60px] border-b-2 border-navy dark:border-khaki" />
         </div>
-        <ul class="mx-auto w-full grid grid-cols-1 md:grid-cols-2 auto-rows-auto gap-y-4 md:gap-x-4 md:gap-y-0">
-            {topWebsites.map(website => (
-                <li class="w-full">
-                    <WebsiteTopCard website={website} />
-                </li>
-            ))}
-        </ul>
-        <div class="my-4 w-full flex flex-col md:flex-row gap-y-4 md:gap-y-0">
-            <a
-                href="/websites/1"
-                class="
-                    flex flex-col md:border-r-2 md:border-0 border-navy dark:border-khaki md:px-2
-                    hover:no-underline
-                "
-            >
-                <span class="text-md font-bold">TOTAL</span>
-                <div class="flex items-baseline">
-                    <span class="text-7xl font-bold">{total}</span>
-                    <span class="text-xl font-bold">WEBSITES</span>
-                </div>
-            </a>
-            <div class="md:px-2 flex flex-col md:border-r-2 border-navy dark:border-khaki">
-                <span class="text-sm font-bold">NEXT-GEN CATEGORIES</span>
-                <ul class="h-full flex flex-col justify-around text-xl font-bold">
-                    <li><a href="/tags/ai">#AI</a></li>
-                    <li><a href="/tags/blockchain">#BLOCKCHAIN</a></li>
-                </ul>
-            </div>
-            <div
-                class="
-                    w-full md:px-2 bg-center
-                    flex flex-col items-center justify-center
-                "
-            >
-                <a
-                    href="/tags/"
-                    class="bg-navy dark:bg-khaki px-2 py-1 text-center text-khaki dark:text-navy text-5xl font-bold hover:no-underline"
-                >
-                    SEE ALL #TAGS
-                </a>
-            </div>
+        <WebsiteList websites={pickupWebsites} />
+        <div class="w-full flex items-center justify-center gap-x-2">
+            <hr class="w-[60px] border-b-2 border-navy dark:border-khaki" />
+            <span class="text-center font-bold">LATEST</span>
+            <hr class="w-[60px] border-b-2 border-navy dark:border-khaki" />
         </div>
-        <div class="my-4 w-full bg-navy dark:bg-khaki py-2">
-            <p class="text-center text-base text-khaki dark:text-navy font-bold">RECENTLY ADDED</p>
-        </div>
-        <WebsiteList>
-            {recentWebsites.map(website => (
-                <li class="w-full">
-                    <WebsiteCard website={website} />
-                </li>
-            ))}
-        </WebsiteList>
+        <WebsiteList websites={recentWebsites} />
         <div class="my-8 text-right">
             <a
                 href="/websites/1"

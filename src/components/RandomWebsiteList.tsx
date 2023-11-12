@@ -1,18 +1,24 @@
+import WebsiteList from './WebsiteList.astro';
 import { useState } from 'preact/hooks';
 import { shuffle } from '../utils/array';
 
 export default function RandomWebsiteList({websites}: any) {
-    const randomize = () => shuffle(websites);
+    // Clone
+    const _websites = [...websites];
+    const randomize = () => shuffle(_websites);
 
-    const [site0, setSite0] = useState(websites[0]);
-    const [site1, setSite1] = useState(websites[1]);
-    const [site2, setSite2] = useState(websites[2]);
+    // const [site0, setSite0] = useState(websites[0]);
+    // const [site1, setSite1] = useState(websites[1]);
+    // const [site2, setSite2] = useState(websites[2]);
+
+    console.log(randomize().slice(0, 2))
+    const [randomSites, setRandomsites] = useState(randomize().slice(0, 2));
 
     const handleClick = (e: any) => {
-        const randomSites = randomize();
-        setSite0(randomSites[0]);
-        setSite1(randomSites[1]);
-        setSite2(randomSites[2]);
+        setRandomsites(randomize().slice(0, 2));
+        // setSite0(randomSites[0]);
+        // setSite1(randomSites[1]);
+        // setSite2(randomSites[2]);
 
         if (e.target) {
             e.target.classList.add('animate-spin');
@@ -59,9 +65,11 @@ export default function RandomWebsiteList({websites}: any) {
                     )
                 ))}
             </WebsiteList> */}
+
+            <WebsiteList websites={randomSites} />
             
-            <ul class="w-full grid grid-cols-1 md:grid-cols-3 auto-rows-auto gap-y-8 md:gap-x-6">
-                <li class="w-full flex flex-col gap-y-2">
+            {/* <ul class="w-full grid grid-cols-1 md:grid-cols-3 auto-rows-auto gap-y-8 md:gap-x-6">
+                <li class="random_card w-full border-2 border-navy dark:border-khaki flex flex-col gap-y-2">
                     <a
                         href={`/websites/${site0.slug}`}
                         class="text-xl font-bold underline"
@@ -94,7 +102,7 @@ export default function RandomWebsiteList({websites}: any) {
                         {site0.data.url}
                     </a>
                 </li>
-                <li class="w-full flex flex-col gap-y-2">
+                <li class="random_card w-full flex flex-col gap-y-2">
                     <a
                         href={`/websites/${site1.slug}`}
                         class="text-xl font-bold underline"
@@ -127,7 +135,7 @@ export default function RandomWebsiteList({websites}: any) {
                         {site1.data.url}
                     </a>
                 </li>
-                <li class="w-full flex flex-col gap-y-2">
+                <li class="random_card w-full flex flex-col gap-y-2">
                     <a
                         href={`/websites/${site2.slug}`}
                         class="text-xl font-bold underline"
@@ -160,7 +168,7 @@ export default function RandomWebsiteList({websites}: any) {
                         {site2.data.url}
                     </a>
                 </li>
-            </ul>
+            </ul> */}
         </div>
     )
 }

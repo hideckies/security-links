@@ -1,7 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import WebsiteCard from '../../components/WebsiteCard.astro';
 import WebsiteList from '../../components/WebsiteList.astro';
 
 export async function getStaticPaths() {
@@ -30,19 +29,8 @@ const sortedWebsites = filteredWebsites.sort((a, b) => {
 ---
 
 <BaseLayout title={tag.toUpperCase()} description={`Websites tagged with #${tag}.`}>
-    <main
-        class="
-            mx-auto mt-8
-            w-11/12 md:w-3/4 min-h-[70vh] flex flex-col items-center gap-y-4
-            "
-        >
+    <main class="mt-8 w-full min-h-[70vh] flex flex-col items-center gap-y-4">
         <h1>#{tag.toUpperCase()}</h1>
-        <WebsiteList>
-            {sortedWebsites.map(website => (
-                <li class="w-full">
-                    <WebsiteCard website={website} />
-                </li>
-            ))}
-        </WebsiteList>
+        <WebsiteList websites={sortedWebsites} />
     </main>
 </BaseLayout>
