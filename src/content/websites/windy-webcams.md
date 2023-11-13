@@ -5,7 +5,7 @@ url: https://www.windy.com/webcams
 image:
     # url: '/assets/images/cafe.png'
     # alt: 'Cafe'
-tags: ['camera', 'osint', 'track']
+tags: ['osint', 'track', 'webcam']
 pubDate: 2023-11-09
 draft: false
 ---

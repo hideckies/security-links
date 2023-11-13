@@ -17,27 +17,30 @@ const _sortedWebsites = [...sortedWebsites];
 
 const pickupWebsites = [...shuffle(_sortedWebsites)].slice(0, 3);
 const recentWebsites = [];
-for (let i = 0; i < _sortedWebsites.length; i++) {
+for (let i = 0; i < sortedWebsites.length; i++) {
     // Exclude the websites of pickupWebsites
     let exclude = false;
     for (let k = 0; k < pickupWebsites.length; k++) {
-        if (pickupWebsites[k].slug === _sortedWebsites[i].slug) {
+        if (pickupWebsites[k].slug === sortedWebsites[i].slug) {
             exclude = true;
             break;
         }
     }
     
     if (!exclude && recentWebsites.length < 12) {
-        recentWebsites.push(_sortedWebsites[i]);
+        recentWebsites.push(sortedWebsites[i]);
     }
 }
+
+const title = "The OffSec Library";
+const description = "A curated list of websites for cybersecurity.";
 ---
 
-<HomeLayout title="The OffSec Library" description="A collection of websites for hackers.">
+<HomeLayout title={title} description={description}>
     <main class="w-full min-h-[70vh] px-2">
         <div class="my-6 w-full">
             <p class="text-base text-center">
-                The OffSec Library is a collection of websites for hackers and offensive security researchers. Actually, this is just a collection of links.
+                The OffSec Library is a curated list of websites for cybersecurity. Actually, this is just a collection of links.
             </p>
         </div>
         <div class="w-full flex items-center justify-center gap-x-2">

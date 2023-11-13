@@ -12,7 +12,6 @@ assignees: ''
 Please check the following
 
 - [ ] It's not a duplicate of existing site in The OffSec Library.
-- [ ] It supports HTTPS.
 
 ## Site Information
 

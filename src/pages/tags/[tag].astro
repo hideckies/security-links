@@ -26,9 +26,12 @@ const filteredWebsites = websites.filter((website: any) => website.data.tags.inc
 const sortedWebsites = filteredWebsites.sort((a, b) => {
 	return (a.data.pubDate > b.data.pubDate) ? -1 : 1;
 });
+
+const title = `${tag.toUpperCase()} - The OffSec Library`;
+const description = `Websites tagged with #${tag}.`;
 ---
 
-<BaseLayout title={tag.toUpperCase()} description={`Websites tagged with #${tag}.`}>
+<BaseLayout title={title} description={description}>
     <main class="mt-8 w-full min-h-[70vh] flex flex-col items-center gap-y-4">
         <h1>#{tag.toUpperCase()}</h1>
         <WebsiteList websites={sortedWebsites} />

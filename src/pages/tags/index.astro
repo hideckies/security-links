@@ -6,7 +6,7 @@ const allWebsites = await getCollection('websites', ({data}) => {
     return data.draft !== true;
 })
 
-const title = "Tags";
+const title = "Tags - The OffSec Library";
 const description = "All tags.";
 const tags = [...new Set(allWebsites.map((website: any) => website.data.tags).flat())];
 tags.sort();

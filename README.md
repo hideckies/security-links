@@ -1,12 +1,12 @@
 # The OffSec Library
 
-A collection of websites for hackers and offensive security researchers.
+A curated list of websites for cybersecurity.
 
 <br />
 
 ## What is It
 
-The OffSec Library is a collection of websites for hackers and offensive security researchers. I'm a security enthusiast and love looking at websites/blogs about cybersecurity, especially offensive security. So I wanted to create something like a huge library. In addition, I wanted to try something new tools/frameworks such as Astro.js.
+The OffSec Library is a curated list of websites for hackers and offensive security researchers. I'm a security enthusiast and love looking at websites/blogs about cybersecurity, especially offensive security. So I wanted to create something like a huge library. In addition, I wanted to try something new tools/frameworks such as Astro.js.
 
 <br />
 
@@ -18,7 +18,7 @@ Many people who visit this site probably think, "This is just a collection of li
 
 ## Request A New Website
 
-If you would like to add a new website, please [issue me](/issues/new?assignees=&labels=&projects=&template=request-a-new-website.md&title=Add%20a%20new%20website).
+If you would like to add a new website, please [issue me](https://github.com/hideckies/theoffseclibrary/issues/new?assignees=&labels=&projects=&template=request-a-new-website.md&title=Add%20a%20new%20website).
 
 However, check if the website is a duplicate before issue.
 For doing that easily, please use `check_url.sh` with setting the URL as the first argument.

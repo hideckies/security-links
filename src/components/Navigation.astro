@@ -27,18 +27,21 @@ import Social from "./Social.astro";
         <a href="/tags/news">#NEWS</a>
         <a href="/tags/osint">#OSINT</a>
         <a href="/tags/training">#TRAINING</a>
-        <a href="/tags/">#TAGS</a>
-        <a href="/random">#RANDOM</a>
-        <a href="/websites/1">#ALL</a>
+        <span class="hidden md:inline">|</span>
+        <hr class="md:hidden w-full border-b-2 border-gray-500" />
+        <a href="/tags/">TAGS</a>
+        <a href="/random">RANDOM</a>
+        <a href="/websites/1">ALL</a>
     </div>
 
     <div class="md:hidden flex flex-col md:flex-row gap-y-3 md:gap-y-0 md:gap-x-2">
+        <h4 class="md:hidden text-gray-500">PAGES</h4>
         <a href="/about">ABOUT</a>
         <a href="/request">REQUEST</a>
     </div>
 
     <div class="md:hidden flex flex-col gap-y-4">
-        <h4 class="text-gray-500">FOLLOW</h4>
+        <h4 class="text-gray-500">SOCIAL</h4>
         <div class="flex items-center gap-x-2">
             <Social title="Twitter" url="https://twitter.com/hideckies" />
             <Social title="GitHub" url="https://github.com/hideckies/theoffseclibrary" />

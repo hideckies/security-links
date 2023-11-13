@@ -1,7 +1,7 @@
 import { defineCollection, reference, z } from 'astro:content';
 // import { rssSchema } from '@astrojs/rss';
 
-const websitesCollection = defineCollection({
+const websites = defineCollection({
     type: 'content',
     schema: z.object({
         title: z.string(),
@@ -15,4 +15,4 @@ const websitesCollection = defineCollection({
     // schema: rssSchema,
 });
 
-export const collections = { 'websites': websitesCollection };
+export const collections = { 'websites': websites };

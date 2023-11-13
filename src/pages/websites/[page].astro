@@ -22,13 +22,13 @@ export async function getStaticPaths({ paginate }: any) {
 
 const { page }: any = Astro.props;
 
-const title = `#All`;
+const title = `All - The OffSec Library`;
 const description = `Page ${page.currentPage} for all websites.`;
 
-const pageNums = Array.from(
-    {length: page.lastPage},
-    (_, index) => index + 1
-);
+// const pageNums = Array.from(
+//     {length: page.lastPage},
+//     (_, index) => index + 1
+// );
 ---
 
 <BaseLayout title={title} description={description}>
