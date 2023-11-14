@@ -1,0 +1,14 @@
+---
+import { getCollection } from "astro:content";
+import Search from "./Search";
+
+const allWebsites = await getCollection('websites', ({data}) => {
+	return data.draft !== true;
+});
+
+const sortedWebsites = allWebsites.sort((a, b) => {
+	return (a.data.pubDate > b.data.pubDate) ? -1 : 1;
+});
+---
+
+<Search client:load searchList={sortedWebsites} />

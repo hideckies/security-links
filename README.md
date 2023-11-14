@@ -20,12 +20,3 @@ Many people who visit this site probably think, "This is just a collection of li
 
 If you would like to add a new website, please [issue me](https://github.com/hideckies/theoffseclibrary/issues/new?assignees=&labels=&projects=&template=request-a-new-website.md&title=Add%20a%20new%20website).
 
-However, check if the website is a duplicate before issue.
-For doing that easily, please use `check_url.sh` with setting the URL as the first argument.
-
-```sh
-# Check if the URL https://example.com is duplicate or not.
-./check_url.sh https://example.com
-```
-
-Make sure there are no duplicates then send issue.

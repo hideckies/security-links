@@ -3,12 +3,12 @@ import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import hackerImage from "../assets/images/hacker-reading-a-book.png";
 
-const title = "About - The OffSec Library";
+const title = "About the Project";
 const description = "About The OffSec Library.";
 ---
 
 <BaseLayout title={title} description={description}>
-    <main class="w-full min-h-screen px-2 flex flex-col items-center gap-y-6">
+    <main class="mt-8 w-full min-h-screen px-2 flex flex-col items-center gap-y-6">
         <h2 class="text-center">{title}</h2>
         <div class="relative w-[200px] md:w-[240px] h-[200px] md:h-[240px]">
             <div class="absolute top-0 left-0 w-full h-full backdrop-sepia"></div>

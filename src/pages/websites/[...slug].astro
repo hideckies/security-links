@@ -14,7 +14,7 @@ const { website } = Astro.props;
 // Currently the contents of websites are empty.
 // const { Content } = await website.render();
 
-const title = `${website.data.title} - The OffSec Library`;
+const title = website.data.title;
 const description = `The details for ${website.data.title}.`;
 ---
 
@@ -57,7 +57,7 @@ const description = `The details for ${website.data.title}.`;
                         href={website.data.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="text-lg font-bold underline"
+                        class="text-lg font-bold underline line-clamp-1"
                     >
                         {website.data.url}
                     </a>
@@ -80,14 +80,14 @@ const description = `The details for ${website.data.title}.`;
                 href={`https://github.com/hideckies/theoffseclibrary/blob/main/src/content/websites/${website.slug}.md`}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="border-2 border-navy dark:border-khaki px-2 py-1 text-center hover:no-underline">
+                class="border-2 border-navy dark:border-khaki md:px-2 py-2 md:py-1 text-center hover:no-underline">
                 EDIT INFORMATION
             </a>
             <a
                 href="https://github.com/hideckies/theoffseclibrary/issues/new"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="border-2 border-navy dark:border-khaki px-2 py-1 text-center hover:no-underline"
+                class="border-2 border-navy dark:border-khaki md:px-2 py-2 md:py-1 text-center hover:no-underline"
             >
                 REPORT THIS SITE
             </a>
