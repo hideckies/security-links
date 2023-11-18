@@ -1,5 +1,5 @@
 ---
-title: Reddit infosec
+title: Reddit - Infosec
 description: A community-curated aggregator of technical information security content. Our mission is to extract signal from the noise — to provide value to security practitioners, students, researchers, and hackers everywhere.
 url: https://www.reddit.com/r/infosec/
 image:

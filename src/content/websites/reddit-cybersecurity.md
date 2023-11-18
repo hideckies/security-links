@@ -1,5 +1,5 @@
 ---
-title: Reddit cybersecurity
+title: Reddit - Cybersecurity
 description: This subreddit is for technical professionals to discuss cybersecurity news, research, threats, etc.
 url: https://www.reddit.com/r/cybersecurity/
 image:
