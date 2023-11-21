@@ -5,7 +5,7 @@ url: https://www.av-comparatives.org/blog/
 image:
     # url: '/assets/images/cafe.png'
     # alt: 'Cafe'
-tags: ['anti-virus', 'blog']
+tags: ['antivirus', 'blog']
 pubDate: 2023-11-18
 draft: false
 ---

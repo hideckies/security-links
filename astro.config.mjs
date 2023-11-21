@@ -5,7 +5,7 @@ import preact from "@astrojs/preact";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://theoffseclibrary.hdks.org",
+  site: "https://security-links.hdks.org",
   integrations: [
     tailwind(),
     preact(),

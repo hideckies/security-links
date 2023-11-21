@@ -11,6 +11,7 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+const pageTitle = title + " - Security Links";
 ---
 
 <!doctype html>
@@ -21,8 +22,8 @@ const { title, description } = Astro.props;
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" href="/favicon.ico" />
         <meta name="generator" content={Astro.generator} />
-        <title>{title} - The OffSec Library</title>
-        <OGP title={`${title} - The OffSec Library`} description={description} />
+        <title>{pageTitle}</title>
+        <OGP title={pageTitle} description={description} />
         <GoogleAnalytics />
     </head>
     <body>

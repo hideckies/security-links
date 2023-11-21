@@ -1,4 +1,4 @@
-# The OffSec Library
+# Security Links
 
 A curated list of websites for cybersecurity.
 
@@ -6,7 +6,7 @@ A curated list of websites for cybersecurity.
 
 ## What is It
 
-The OffSec Library is a curated list of websites for hackers and offensive security researchers. I'm a security enthusiast and love looking at websites/blogs about cybersecurity, especially offensive security. So I wanted to create something like a huge library. In addition, I wanted to try something new tools/frameworks such as Astro.js.
+Security Links is a curated list of websites for hackers and offensive security researchers. I'm a security enthusiast and love looking at websites/blogs about cybersecurity, especially offensive security. So I wanted to create something like a huge library. In addition, I wanted to try something new tools/frameworks such as Astro.js.
 
 <br />
 
@@ -18,5 +18,5 @@ Many people who visit this site probably think, "This is just a collection of li
 
 ## Request A New Website
 
-If you would like to add a new website, please [issue me](https://github.com/hideckies/theoffseclibrary/issues/new?assignees=&labels=&projects=&template=request-a-new-website.md&title=Add%20a%20new%20website).
+If you would like to add a new website, please [issue me](https://github.com/hideckies/security-links/issues/new?assignees=&labels=&projects=&template=request-a-new-website.md&title=Add%20a%20new%20website).
 
