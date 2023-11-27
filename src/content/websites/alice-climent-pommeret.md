@@ -5,7 +5,7 @@ url: https://alice.climent-pommeret.red/
 image:
     # url: '/assets/images/cafe.png'
     # alt: 'Cafe'
-tags: ['blog']
+tags: ['blog', 'malware']
 pubDate: 2023-11-26
 draft: false
 ---
