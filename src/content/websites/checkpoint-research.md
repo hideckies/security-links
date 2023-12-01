@@ -5,7 +5,7 @@ url: https://research.checkpoint.com/
 image:
     # url: '/assets/images/cafe.png'
     # alt: 'Cafe'
-tags: ['research', 'threat-intelligence']
+tags: ['malware', 'research', 'threat-intelligence']
 pubDate: 2023-11-08
 draft: false
 ---

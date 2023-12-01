@@ -1,7 +1,7 @@
 ---
-title: vx-underground
+title: Vx Underground
 description: The largest collection of malware source code, samples, and papers on the internet.
-url: https://www.vx-underground.org/
+url: https://vx-underground.org/
 image:
     # url: '/assets/images/cafe.png'
     # alt: 'Cafe'
