@@ -5,7 +5,7 @@ url: https://www.cybercom.mil/
 image:
     # url: '/assets/images/cafe.png'
     # alt: 'Cafe'
-tags: ['News']
+tags: ['news']
 pubDate: 2023-12-02
 draft: false
 ---

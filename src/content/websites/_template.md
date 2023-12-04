@@ -6,6 +6,6 @@ image:
     # url: '/assets/images/cafe.png'
     # alt: 'Cafe'
 tags: ['example']
-pubDate: 2023-11-01
+pubDate: 2023-12-01
 draft: true
 ---

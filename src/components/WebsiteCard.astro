@@ -11,7 +11,7 @@ const { website } = Astro.props;
 const oneWeekAgo = getOneWeekAgo();
 ---
 
-<div class="w-full h-full border-2 border-navy dark:border-khaki flex flex-col gap-y-1 bg-gray-800">
+<div class="w-full h-full border-2 border-navy dark:border-khaki flex flex-col gap-y-1">
     <div class="relative bg-navy dark:bg-khaki px-2 py-1 flex items-center justify-center">
         <a
             href={`/websites/${website.slug}`}

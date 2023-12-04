@@ -5,7 +5,7 @@ url: https://www.sentinelone.com/labs/
 image:
     # url: '/assets/images/cafe.png'
     # alt: 'Cafe'
-tags: ['research', 'thread-intelligence']
+tags: ['research', 'threat-intelligence']
 pubDate: 2023-11-24
 draft: false
 ---
