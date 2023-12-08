@@ -2,7 +2,6 @@
 import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import gentlemanMailboxImage from "../assets/images/gentleman-mailbox.png";
-import NewsletterForm from "../components/NewsletterForm.astro";
 
 const title = "Subscribe Newsletter";
 const description = "Stay up to date.";
@@ -15,14 +14,8 @@ const description = "Stay up to date.";
             <div class="absolute top-0 left-0 w-full h-full backdrop-sepia"></div>
             <Image src={gentlemanMailboxImage} alt="gentleman" class="w-full h-full object-cover" />
         </div>
-        <div class="md:mx-auto w-full md:w-2/3 flex flex-col gap-y-8">
-            <div class="w-full flex flex-col gap-y-4">
-                <h3>Stay up to date</h3>
-            </div>
+        <div class="md:mx-auto w-full flex flex-col items-center justify-center">
         </div>
-        <div class="md:mx-auto w-full md:w-1/2 flex flex-col items-center justify-center">
-            <!-- <iframe class="subscribe-newsletter w-full min-h-[600px]" src="https://cdn.forms-content-1.sg-form.com/a5830a31-95bd-11ee-817f-b62d225cc26f"/> -->
-            <!-- <NewsletterForm /> -->
-        </div>
+        <iframe class="subscribe-newsletter w-full min-h-[600px]" src="https://cdn.forms-content-1.sg-form.com/a5830a31-95bd-11ee-817f-b62d225cc26f"/>
     </main>
 </BaseLayout>
