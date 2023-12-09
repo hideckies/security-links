@@ -1,8 +1,10 @@
 ---
+import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import HomeLayout from '../layouts/HomeLayout.astro';
 import WebsiteList from '../components/WebsiteList.astro';
 import { shuffle } from '../utils/array';
+import gentlemanMailboxImage from '../assets/images/gentleman-mailbox.png';
 
 const allWebsites = await getCollection('websites', ({data}) => {
 	return data.draft !== true;
@@ -43,12 +45,40 @@ const description = "A curated list of websites for cybersecurity.";
                 {title} is a curated list of websites for cybersecurity. Actually, this is just a collection of links.
             </p>
         </div>
+
+        <!-- Pickup -->
         <div class="w-full flex items-center justify-center gap-x-2">
             <hr class="w-[60px] border-b-2 border-navy dark:border-khaki" />
             <span class="text-center font-bold">PICKUP</span>
             <hr class="w-[60px] border-b-2 border-navy dark:border-khaki" />
         </div>
         <WebsiteList websites={pickupWebsites} />
+
+        <!-- Stay Updated -->
+        <a
+            href="/newsletter/subscribe"
+            class="mx-auto my-8 w-full md:w-1/2 h-[120px] bg-navy dark:bg-khaki flex"
+        >
+            <div class="relative w-1/3 md:w-1/4">
+                <div class="absolute top-0 left-0 w-full h-full backdrop-sepia"></div>
+                <Image src={gentlemanMailboxImage} alt="mailbox" class="h-full object-cover object-center-top" />
+            </div>
+            <div class="w-full p-3">
+                <div
+                    class="
+                        w-full h-full
+                        outline outline-4 outline-khaki dark:outline-navy
+                        p-4 flex flex-col items-center justify-center"
+                >
+                    <h3 class="text-khaki dark:text-navy text-2xl md:text-4xl font-bold">
+                        STAY UPDATED!
+                    </h3>
+                    <p class="text-khaki dark:text-navy text-sm md:text-md">Subscribe to our Newsletter</p>
+                </div>
+            </div>
+        </a>
+
+        <!-- Latest -->
         <div class="w-full flex items-center justify-center gap-x-2">
             <hr class="w-[60px] border-b-2 border-navy dark:border-khaki" />
             <span class="text-center font-bold">LATEST</span>

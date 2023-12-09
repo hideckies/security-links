@@ -19,14 +19,19 @@ html.dark {
     color: var(--color-khaki);
 }
 
+body {
+    margin: 0;
+    padding: 0;
+}
+
 h1,h2,h3,h4,h5 {
     font-weight: bold;
     line-height: 1.2em;
 }
 
-h1 { font-size: 2.2em; }
+h1 { font-size: 2em; }
 
-h2 { font-size: 2em; }
+h2 { font-size: 1.8em; }
 
 h3 { font-size: 1.6em; }
 
@@ -35,3 +40,17 @@ h4 { font-size: 1.2em; }
 h5 { font-size: 1em; }
 
 a:hover { text-decoration: underline; }
+
+/* Newsletter content */
+.newsletter-content h1,
+.newsletter-content h2,
+.newsletter-content h3 {
+    margin: 20px 0;
+}
+.newsletter-content ul {
+    margin: 12px 0;
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+    list-style-type: circle;
+}

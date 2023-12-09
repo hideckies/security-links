@@ -13,7 +13,7 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
-const pageTitle = title + " Security Links";
+const pageTitle = title + " - Security Links";
 ---
 
 <!doctype html>
@@ -30,7 +30,7 @@ const pageTitle = title + " Security Links";
     </head>
     <body>
         <div>
-            <div class="mx-auto w-11/12 md:w-4/5 min-h-[90vh]">
+            <div class="mx-auto w-11/12 md:w-10/12 lg:w-9/12 min-h-[90vh]">
                 <Header />
                 <slot />
             </div>
@@ -38,6 +38,7 @@ const pageTitle = title + " Security Links";
         </div>
         <script>
             import "../scripts/hamburger.js";
+            import "../scripts/links.js";
         </script>
     </body>
 </html>

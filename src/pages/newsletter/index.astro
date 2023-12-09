@@ -1,0 +1,48 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const newsletters = await getCollection('newsletter', ({data}) => {
+    return data.draft !== true;
+})
+
+const title = "Newsletter";
+const description = "Newsletter for Security Links. Get latest updates.";
+---
+
+<BaseLayout title={title} description={description}>
+    <main class="mt-8 w-full min-h-screen flex flex-col items-center gap-y-12">
+        <h1>{title}</h1>
+        <ul class="
+            w-full md:w-2/3 flex flex-col items-center gap-y-2"
+        >
+            {newsletters.map((newsletter: any) => (
+                <li>
+                    <a
+                        href={`/newsletter/${newsletter.slug}`}
+                        class="text-base font-bold"
+                    >
+                        Newsletter #{newsletter.slug.split('-')[1]} -
+                        <time datetime={newsletter.data.pubDate.toISOString()}>
+                            {newsletter.data.pubDate.toDateString()}
+                        </time>
+                    </a>
+                </li>
+            ))}
+        </ul>
+        <div class="mt-8 w-full flex flex-col items-center gap-y-4">
+            <a
+                href="/newsletter/subscribe"
+                class="
+                    border-2 border-navy dark:border-khaki
+                    hover:bg-navy dark:hover:bg-khaki
+                    px-4 py-2
+                    hover:text-khaki dark:hover:text-navy
+                    font-bold
+                    hover:no-underline"
+            >
+                Subscribe to our Newsletter!
+            </a>
+        </div>
+    </main>
+</BaseLayout>

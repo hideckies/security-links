@@ -1,16 +1,17 @@
 ---
+// import type { CollectionEntry } from 'astro:content';
+import Footer from '../components/Footer.astro';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import OGP from '../components/OGP.astro';
 import Header from "../components/Header.astro";
-import GoogleAnalytics from "../components/GoogleAnalytics.astro";
-import OGP from "../components/OGP.astro";
-import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 
 interface Props {
     title: string;
-    description: string;
+    date: string;
 }
 
-const { title, description } = Astro.props;
+const { title, date } = Astro.props;
 const pageTitle = title + " - Security Links";
 ---
 
@@ -18,17 +19,17 @@ const pageTitle = title + " - Security Links";
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="description" content={description} />
+        <!-- <meta name="description" content="" /> -->
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" href="/favicon.ico" />
         <meta name="generator" content={Astro.generator} />
         <title>{pageTitle}</title>
-        <OGP title={pageTitle} description={description} />
+        <OGP title={title} description="" />
         <GoogleAnalytics />
     </head>
     <body>
         <div>
-            <div class="mx-auto w-11/12 md:w-10/12 lg:w-9/12">
+            <div class="mx-auto w-11/12 md:w-10/12 lg:w-9/12 min-h-[90vh]">
                 <Header />
                 <slot />
             </div>

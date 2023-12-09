@@ -7,7 +7,7 @@ import logoImage from '../assets/logo.png';
 ---
 
 <header class="relative mx-auto w-full sticky top-0 z-50">
-    <div class="w-full p-4 flex flex-col items-center justify-center gap-y-1">
+    <div class="w-full py-4 flex flex-col items-center justify-center gap-y-1">
         <div class="w-full grid grid-cols-1 md:grid-cols-3 auto-rows-auto justify-center">
             <div class="absolute top-4 left-4 md:static md:block">
                 <ThemeIcon />
@@ -20,9 +20,9 @@ import logoImage from '../assets/logo.png';
             <div class="hidden md:block">
                 <div class="
                         w-full h-full flex items-center justify-end text-base font-bold gap-x-3 text-sm">
-                    <a href="/about">ABOUT</a>
+                    <a href="/about" class="hidden lg:block">ABOUT</a>
                     <a href="/search">SEARCH</a>
-                    <!-- <a href="/newsletter">NEWSLETTER</a> -->
+                    <a href="/newsletter">NEWSLETTER</a>
                     <a href="/request">REQUEST</a>
                 </div>
             </div>

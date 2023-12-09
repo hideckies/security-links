@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import WebsiteList from '../../components/WebsiteList.astro';
+import { shuffle } from '../../utils/array';
 
 export async function getStaticPaths() {
     const allWebsites = await getCollection('websites', ({data}) => {
@@ -23,9 +24,7 @@ const { tag } = Astro.params;
 const { websites } = Astro.props;
 
 const filteredWebsites = websites.filter((website: any) => website.data.tags.includes(tag));
-const sortedWebsites = filteredWebsites.sort((a, b) => {
-	return (a.data.pubDate > b.data.pubDate) ? -1 : 1;
-});
+const shuffledWebsites = shuffle(filteredWebsites);
 
 const title = `${tag.toUpperCase()}`;
 const description = `Websites tagged with #${tag}.`;
@@ -34,6 +33,6 @@ const description = `Websites tagged with #${tag}.`;
 <BaseLayout title={title} description={description}>
     <main class="mt-8 w-full min-h-[70vh] flex flex-col items-center gap-y-4">
         <h1>#{tag.toUpperCase()}</h1>
-        <WebsiteList websites={sortedWebsites} />
+        <WebsiteList websites={shuffledWebsites} />
     </main>
 </BaseLayout>
