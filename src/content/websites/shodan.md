@@ -5,7 +5,7 @@ url: https://www.shodan.io/
 image:
     # url: '/assets/images/cafe.png'
     # alt: 'Cafe'
-tags: ['osint']
+tags: ['osint', 'search-engine']
 pubDate: 2023-11-08
 draft: false
 ---
