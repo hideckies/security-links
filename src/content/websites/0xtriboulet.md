@@ -5,7 +5,7 @@ url: https://steve-s.gitbook.io/0xtriboulet/
 image:
     # url: '/assets/images/cafe.png'
     # alt: 'Cafe'
-tags: ['blog', 'malware', 'windows']
+tags: ['malware', 'windows']
 pubDate: 2023-11-21
 draft: false
 ---

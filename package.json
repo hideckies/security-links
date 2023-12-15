@@ -16,6 +16,7 @@
     "@astrojs/preact": "^3.0.1",
     "@astrojs/rss": "^3.0.0",
     "@astrojs/tailwind": "^5.0.2",
+    "@fontsource-variable/open-sans": "^5.0.19",
     "@sendgrid/client": "^8.1.0",
     "astro": "^3.4.2",
     "fuse.js": "^7.0.0",
