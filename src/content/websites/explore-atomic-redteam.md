@@ -5,7 +5,7 @@ url: https://atomicredteam.io/atomics/
 image:
     # url: '/assets/images/cafe.png'
     # alt: 'Cafe'
-tags: ['advisory', 'threat-intelligence']
+tags: ['advisory', 'threat']
 pubDate: 2023-11-09
 draft: false
 ---

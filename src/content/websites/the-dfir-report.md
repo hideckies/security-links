@@ -5,7 +5,7 @@ url: https://thedfirreport.com/
 image:
     # url: '/assets/images/cafe.png'
     # alt: 'Cafe'
-tags: ['malware', 'news', 'ransomware', 'threat-intelligence']
+tags: ['malware', 'news', 'ransomware', 'threat']
 pubDate: 2023-11-09
 draft: false
 ---

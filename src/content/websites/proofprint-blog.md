@@ -5,7 +5,7 @@ url: https://www.proofpoint.com/us/blog
 image:
     # url: '/assets/images/cafe.png'
     # alt: 'Cafe'
-tags: ['blog', 'news', 'threat-intelligence']
+tags: ['blog', 'news', 'threat']
 pubDate: 2023-11-08
 draft: false
 ---

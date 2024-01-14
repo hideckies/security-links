@@ -5,7 +5,7 @@ url: https://cybermap.kaspersky.com/
 image:
     # url: '/assets/images/cafe.png'
     # alt: 'Cafe'
-tags: ['cyberattack', 'osint', 'threat-intelligence']
+tags: ['cyberattack', 'osint', 'threat']
 pubDate: 2023-11-24
 draft: false
 ---

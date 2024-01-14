@@ -5,7 +5,7 @@ url: https://securelist.com/
 image:
     # url: '/assets/images/cafe.png'
     # alt: 'Cafe'
-tags: ['research', 'threat-intelligence']
+tags: ['research', 'threat']
 pubDate: 2023-11-09
 draft: false
 ---

@@ -5,7 +5,7 @@ url: https://unprotect.it/
 image:
     # url: '/assets/images/cafe.png'
     # alt: 'Cafe'
-tags: ['technique']
+tags: ['malware', 'technique']
 pubDate: 2023-11-27
 draft: false
 ---

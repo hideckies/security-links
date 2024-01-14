@@ -5,7 +5,7 @@ url: https://www.microsoft.com/en-us/wdsi/threats
 image:
     # url: '/assets/images/cafe.png'
     # alt: 'Cafe'
-tags: ['threat-intelligence']
+tags: ['threat']
 pubDate: 2023-11-18
 draft: false
 ---

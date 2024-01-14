@@ -5,7 +5,7 @@ url: https://infosecwriteups.com/
 image:
     # url: '/assets/images/cafe.png'
     # alt: 'Cafe'
-tags: ['tutorial', 'writeup']
+tags: ['blog', 'bugbounty', 'tutorial', 'writeup']
 pubDate: 2023-11-09
 draft: false
 ---

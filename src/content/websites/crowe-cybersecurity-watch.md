@@ -5,7 +5,7 @@ url: https://www.crowe.com/cybersecurity-watch
 image:
     # url: '/assets/images/cafe.png'
     # alt: 'Cafe'
-tags: ['news', 'threat-intelligence']
+tags: ['news', 'threat']
 pubDate: 2023-11-12
 draft: false
 ---

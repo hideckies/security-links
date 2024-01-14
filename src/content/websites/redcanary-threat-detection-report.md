@@ -5,7 +5,7 @@ url: https://redcanary.com/threat-detection-report/techniques/
 image:
     # url: '/assets/images/cafe.png'
     # alt: 'Cafe'
-tags: ['threat-intelligence']
+tags: ['threat']
 pubDate: 2023-11-13
 draft: false
 ---
