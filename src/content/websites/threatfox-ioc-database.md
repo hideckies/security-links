@@ -5,7 +5,7 @@ url: https://threatfox.abuse.ch/browse/
 image:
     # url: '/assets/images/cafe.png'
     # alt: 'Cafe'
-tags: ['database', 'malware', 'thread-intelligence']
+tags: ['database', 'malware', 'threat']
 pubDate: 2023-12-21
 draft: false
 ---
