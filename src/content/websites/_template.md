@@ -1,11 +1,11 @@
 ---
-title: Example Title
-description: This is an example description.
-url: https://example.com/
+title: 
+description: 
+url:
 image:
     # url: '/assets/images/cafe.png'
     # alt: 'Cafe'
-tags: ['example']
-pubDate: 2024-01-01
+tags: []
+pubDate: 2024-02-01
 draft: true
 ---
