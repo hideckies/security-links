@@ -1,7 +1,7 @@
 ---
 title: 
 description: 
-url:
+url: 
 image:
     # url: '/assets/images/cafe.png'
     # alt: 'Cafe'

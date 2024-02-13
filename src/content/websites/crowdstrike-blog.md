@@ -5,7 +5,7 @@ url: https://www.crowdstrike.com/blog/
 image:
     # url: '/assets/images/cafe.png'
     # alt: 'Cafe'
-tags: ['blog', 'news']
+tags: ['blog', 'c2', 'news']
 pubDate: 2023-11-06
 draft: false
 ---
